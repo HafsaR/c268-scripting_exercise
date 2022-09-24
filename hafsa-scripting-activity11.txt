@@ -1,0 +1,32 @@
+#!/bin/bash
+: '
+Author: Hafsa Degmaster
+Version: 1.0
+Description: 
+- Read in the file
+- Sort the numbers into reverse order and output them to the screen
+- Each number should output exactly once. Duplicate numbers should not appear in the output.
+'
+
+file='number.txt'
+
+# read a file 
+if [ -f "$file" ]     # check if file exist. -f for regular file
+then
+	while read line
+	do
+		echo "File content: $line"
+	done < $file
+else
+	echo "File does not exist!"
+	exit 1
+fi
+
+#add new line 
+#`sed -i 's/\ /\n/g' $file`
+
+#sort the numbers into reverse order and remove duplicate
+sortFile=`sed 's/\ /\n/g' $file | sort -nr | uniq`
+echo "File content after sort and remove duplicate:\n $sortFile"
+
+exit 0
