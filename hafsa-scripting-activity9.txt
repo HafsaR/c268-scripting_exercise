@@ -1,0 +1,26 @@
+#!/bin/bash
+
+: '
+Author: Hafsa Degmaster
+Version: 1.0
+Description: 
+A script that takes a file name as a parameter.
+- If the file exists, print an error and return a code.
+- If the file does not exist, create the file.
+'
+
+function checkFile()
+{
+	echo "your file is $file"
+	if [ -e "$file" ]
+	then
+		echo "file exist"
+	else
+		`touch $file`
+		echo "file created"
+	fi
+}
+echo "Enter file name"
+read file
+checkFile $file
+exit 0
