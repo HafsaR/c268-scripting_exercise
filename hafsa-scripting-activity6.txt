@@ -1,0 +1,27 @@
+#!/bin/bash
+: '
+Author: Hafsa Degmaster
+Version: 1.0
+Description: 
+- Create a script that takes two number parameters a and b and then shows True if a is larger than b or False otherwise.
+- Create a second version of the script that then tells the user the difference between the two numbers.
+- Remember to code defensively – ensure that your script handles things appropriately if someone enters things incorrectly!
+'
+function checkEquality(){
+	echo "Enter number a and b"
+	read a b
+	if [[ ( $a =~ ^[0-9]+$ && $b =~ ^[0-9]+$ ) ]]
+	then
+		echo "a: $a, b: $b"
+		if [ $a -gt $b ]
+		then
+			echo "True"
+		else
+			echo "False"
+		fi
+	else
+		echo "Please enter valid numbers!"
+	fi
+}
+checkEquality
+exit 0

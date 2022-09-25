@@ -1,0 +1,21 @@
+#!/bin/bash
+: '
+Author: Hafsa Degmaster
+Version: 1.1
+Description: 
+- create a second version of the script that then tells the user the difference between the two numbers.
+'
+function checkEquality(){
+        echo "Enter number a and b"
+        read a b
+        if [[ ( $a =~ ^[0-9]+$ && $b =~ ^[0-9]+$ ) ]]
+        then
+                echo "a: $a, b: $b"
+		diff=$(( a - b ))
+  		echo "Difference between two numbers is $diff"
+	else
+                echo "Please enter valid numbers!"
+        fi
+}
+
+checkEquality

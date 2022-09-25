@@ -18,7 +18,7 @@ LENGTH=${#password}     #count length of password
 
 if (( ${#password} <  $minPasswordLength ))
 then
-	echo "password length should be 8 or more character"
+	echo "Password length should be 8 or more characters"
 	exit 1
 elif [[ $password =~ [a-z] && $password =~ [A-Z] && $password =~ [0-9] ]]
 then
@@ -26,10 +26,8 @@ then
 	exit 0
 else
 	echo "Incorrect password!"
-	: '
-	echo "- Length should be 8 or more character
+	echo "- Password length should be 8 or more character
 	- The password should contain numbers and letters
 	- There should be both uppercase and lowercase letters"
-	'
 	exit 1
 fi

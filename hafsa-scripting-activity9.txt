@@ -11,16 +11,18 @@ A script that takes a file name as a parameter.
 
 function checkFile()
 {
-	echo "your file is $file"
-	if [ -e "$file" ]
+	echo "your file is $1"
+	if [ -e "$1" ]
 	then
 		echo "file exist"
 	else
-		`touch $file`
+		`touch $1`
 		echo "file created"
 	fi
 }
+: '
 echo "Enter file name"
 read file
-checkFile $file
+'
+checkFile $1
 exit 0
