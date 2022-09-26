@@ -16,7 +16,7 @@ read password
 
 LENGTH=${#password}     #count length of password
 
-if (( ${#password} <  $minPasswordLength ))
+if (( $LENGTH <  $minPasswordLength ))
 then
 	echo "Password length should be 8 or more characters"
 	exit 1
@@ -26,8 +26,6 @@ then
 	exit 0
 else
 	echo "Incorrect password!"
-	echo "- Password length should be 8 or more character
-	- The password should contain numbers and letters
-	- There should be both uppercase and lowercase letters"
+	echo -e "- The password should contain numbers and letters\n- There should be both uppercase and lowercase letters"
 	exit 1
 fi

@@ -13,11 +13,11 @@ if [[ $number =~ ^[0-9]+$ ]]
 then
 	echo "Number: $number"
 
-	length=${#number}  # length of the number
+	LENGTH=${#number}  # LENGTH of the number
 	reverseNumber=''
-	for (( i=1; i<=length; i++ ))
+	for (( i=1; i<=LENGTH; i++ ))
 	do
-		reverseNumber+=${number:length-$i:1}   # EXTRACT substring from string at specific position
+		reverseNumber+=${number:LENGTH-$i:1}   # EXTRACT substring from string at specific position
 
 	done
 	echo "Reverse number is $reverseNumber"

@@ -14,13 +14,13 @@ function randomNumber(){
 	then
 		echo "File exist"
 		return $!
-	elif ! [[ $2 =~ ^[0-9]+$ ]]
+	elif ! [[ $2 =~ ^[0-9]+$ ]]   # validate an input for line number
 	then
 		echo "Please enter valid number for number of lines!"
 	else
-		randomNumbers=`touch $1`
-		echo "File created"
-		lineNumber=1
+		`touch $1`
+		echo "$1 File created"
+		lineNumber=1               #Initialize a line number 
 		until [ $lineNumber -gt $2 ]
 		do
 			generateRandomNumber=`echo $RANDOM`    # generate random number using $RANDOM
