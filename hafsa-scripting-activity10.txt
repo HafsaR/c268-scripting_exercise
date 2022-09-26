@@ -10,10 +10,13 @@ Description:
 '
 function randomNumber(){
 	echo "File name: $1, Number of lines: $2"
-	if [ -f "$1" ]
+	if [ -f "$1" ]           # check if file exist
 	then
 		echo "File exist"
 		return $!
+	elif ! [[ $2 =~ ^[0-9]+$ ]]
+	then
+		echo "Please enter valid number for number of lines!"
 	else
 		randomNumbers=`touch $1`
 		echo "File created"
