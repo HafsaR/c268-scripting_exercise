@@ -15,6 +15,7 @@ Description:
 3. After performing the calculations, the program should display the following to the user:
 - the values the user entered
 - each of the calculations, using a phrase that identifies the value
+if ! [[ $number =~ ^[0-9]+$ ]]       #valiadte user input for number only
 '
 arrayNumber=()
 
@@ -22,9 +23,10 @@ for i in {1..5};
 do
 	echo "Enter number"
 	read number
-	if ! [[ $number =~ ^[0-9]+$ ]]       #valiadte user input for number only
+	if [[ $((number)) != $number ]]
 	then
 		echo "Not a number. Please enter a number"; 
+		echo 
 		exit 1
 	else
 		arrayNumber+=($number)
@@ -41,8 +43,8 @@ do
 		do  
 			echo "Enter number"
 			read number
-			if ! [[ $number =~ ^[0-9]+$ ]]
-			then
+		 if [[ $((number)) != $number ]]	
+		then
 				exec >&2; echo "error: Not a number";
 				exit 1
 			else
@@ -60,14 +62,13 @@ do
 esac
 done
 
-' Initialize a variable '
+: ' Initialize a variable '
 product=1
 average=0
 sum=0
 min=${arrayNumber[0]}
 max=${arrayNumber[0]}
 
-echo "Number the user entered: ${arrayNumber[*]}"       #display array of number
 for i in ${arrayNumber[@]}
 do
 	product=$((product*i))
@@ -82,6 +83,8 @@ do
 	fi
 done
 average=$(( sum / ${#arrayNumber} ))
+
+echo "User input following numbers: ${arrayNumber[*]}"       #display array of number
 echo "The product of the integers: $product"
 echo "The average of the integers: $average"
 echo "The min of the integers: $min"
